@@ -9,7 +9,7 @@ const NameModal: React.FC = () => {
   const [error, setError] = useState<string>("");
   const { setName, setEmail } = useGame();
 
-  // Blinking cursor effect
+  // Blinking cursor
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
