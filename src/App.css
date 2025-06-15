@@ -1,0 +1,111 @@
+:root {
+  --bg-dark: #0d0d0d;
+  --panel-bg: #1a1a1a;
+  --text-primary: #e0e0e0;
+  --accent-green: #39ff14;
+  --accent-blue: #00ffff;
+  --error-red: #ff2b2b;
+  --border-glow: #00f0ff80;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-x: hidden;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Hide spinners for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--accent-blue);
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  *{
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+  }
+
+    *::-webkit-scrollbar {
+        display: none;
+    }
+    
+}
+
+.app-container {
+  max-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-text {
+  position: relative;
+  display: inline-block;
+}
+
+.terminal-text::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.glow {
+  text-shadow: 0 0 5px var(--accent-blue), 0 0 10px var(--accent-blue);
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+  padding: 10px 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px var(--border-glow);
+}
+
+.input {
+  background-color: rgba(26, 26, 26, 0.7);
+  border: 1px solid var(--accent-blue);
+  color: var(--text-primary);
+  padding: 10px;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--border-glow);
+}
+
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}

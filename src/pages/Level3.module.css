@@ -1,0 +1,138 @@
+.container {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.title {
+  color: var(--accent-blue);
+  margin-bottom: 10px;
+}
+
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.cipherSelector {
+  margin-bottom: 30px;
+}
+
+.selectorLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent-blue);
+}
+
+.select {
+  background-color: rgba(13, 13, 13, 0.7);
+  border: 1px solid var(--accent-blue);
+  color: var(--text-primary);
+  padding: 10px;
+  width: 100%;
+  font-family: inherit;
+}
+
+.cipherContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent-blue);
+}
+
+.input {
+  background-color: rgba(13, 13, 13, 0.7);
+  border: 1px solid var(--accent-blue);
+  color: var(--text-primary);
+  padding: 10px 5%;
+  width: 90%;
+  max-width: 100%;
+  font-family: inherit;
+}
+
+.encryptedText {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px dashed var(--accent-green);
+  padding: 15px;
+  font-family: monospace;
+  margin-bottom: 20px;
+  color: var(--accent-green);
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
+}
+
+.resultText {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent-blue);
+  padding: 15px;
+  font-family: monospace;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  min-height: 50px;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+  padding: 10px 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px var(--border-glow);
+}
+
+.success {
+  color: var(--accent-green);
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid var(--accent-green);
+  animation: glow 1.5s infinite alternate;
+}
+
+.hint {
+  color: var(--text-primary);
+  opacity: 0.7;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px var(--accent-green);
+  }
+  to {
+    box-shadow: 0 0 20px var(--accent-green);
+  }
+}

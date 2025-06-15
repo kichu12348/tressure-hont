@@ -1,0 +1,93 @@
+.container {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.title {
+  color: var(--accent-blue);
+  margin-bottom: 10px;
+}
+
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.clueText {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.form {
+  margin-top: 30px;
+}
+
+.inputGroup {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.inputPrefix {
+  color: var(--accent-green);
+  padding: 10px 5px 10px 0;
+}
+
+.input {
+  flex: 1;
+  background-color: rgba(13, 13, 13, 0.7);
+  border: 1px solid var(--accent-blue);
+  color: var(--text-primary);
+  padding: 10px;
+  font-family: inherit;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+  padding: 10px 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px var(--border-glow);
+}
+
+.error {
+  color: var(--error-red);
+  margin-top: 10px;
+}
+
+.success {
+  color: var(--accent-green);
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid var(--accent-green);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px var(--accent-green);
+  }
+  to {
+    box-shadow: 0 0 20px var(--accent-green);
+  }
+}
+
+.navigateButton {
+  margin-top: 20px;
+}

@@ -1,0 +1,65 @@
+.card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.locked {
+  border-color: #444;
+  color: #777;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.unlocked {
+  cursor: pointer;
+}
+
+.unlocked:hover {
+  box-shadow: 0 0 15px var(--border-glow);
+  transform: translateY(-5px);
+}
+
+.completed {
+  border-color: var(--accent-green);
+}
+
+.completed:hover {
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+}
+
+.levelNumber {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.levelTitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.statusIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+}
+
+.lockedIcon {
+  color: #777;
+}
+
+.completedIcon {
+  color: var(--accent-green);
+}
