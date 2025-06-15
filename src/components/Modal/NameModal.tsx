@@ -6,6 +6,7 @@ const NameModal: React.FC = () => {
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [error, setError] = useState<string>("");
   const { setName, setEmail } = useGame();
 
   // Blinking cursor effect
@@ -19,6 +20,10 @@ const NameModal: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if(!inputName.trim() && !inputEmail.trim()) {
+      setErrorMessage("Please enter your codename and email.");
+      return;
+    }
     if (inputName.trim()) {
       setName(inputName.trim());
     }
@@ -27,18 +32,26 @@ const NameModal: React.FC = () => {
     }
   };
 
+  const setErrorMessage = (message: string):void => {
+    setError(message);
+    setTimeout(() => {
+      setError("");
+    }, 3000);
+  }
+
+
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <h2 className={styles.title}>SYSTEM AUTHENTICATION REQUIRED</h2>
 
         <p className={styles.promptText}>
-          TERMINAL v4.2.1 - SECURE ACCESS PROTOCOL
+          TERMINAL v24.2.5 - SECURE ACCESS PROTOCOL
         </p>
 
         <form onSubmit={handleSubmit}>
           <div className={styles.inputContainer}>
-            <span className={styles.inputPrefix}>&gt; </span>
+  
             <input
               type="text"
               value={inputName}
@@ -56,7 +69,7 @@ const NameModal: React.FC = () => {
               autoFocus
             />
           </div>
-
+         <p className={styles.error}>{error}</p>
           <button type="submit" className={styles.button}>
             AUTHENTICATE {showCursor ? "_" : " "}
           </button>
