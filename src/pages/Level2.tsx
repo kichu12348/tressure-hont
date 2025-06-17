@@ -134,7 +134,7 @@ const Level2: React.FC = () => {
                 </div>
                 <div className={styles.clueText}>
                   <p>CLUE FOR LEVEL 3:</p>
-                  <p>The cipher key is: TREASURE</p>
+                  <p>TREASURE</p>
                 </div>
                 <button 
                   onClick={navigateToNextLevel} 

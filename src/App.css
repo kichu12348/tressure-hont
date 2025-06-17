@@ -46,6 +46,10 @@ body::-webkit-scrollbar-track {
     *::-webkit-scrollbar {
         display: none;
     }
+
+    body{
+      padding-bottom: 50px; /* Prevent content from being cut off on mobile */
+    }
     
 }
 
