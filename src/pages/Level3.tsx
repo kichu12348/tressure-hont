@@ -74,7 +74,7 @@ const Level3: React.FC = () => {
         {/* Cipher selector removed */}
 
         <div className={styles.cipherContainer}>
-          <div className={styles.encryptedText}>{currentEncryptedText}</div>
+          <div className={`${styles.encryptedText} no-select`}>{currentEncryptedText}</div>
 
           <div className={styles.inputGroup}>
             <label className={styles.label}>Shift Value:</label>

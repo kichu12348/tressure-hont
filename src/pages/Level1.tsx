@@ -37,7 +37,7 @@ const Level1: React.FC = () => {
       </header>
       
       <div className={styles.panel}>
-        <div className={styles.clueText}>
+        <div className={`${styles.clueText} no-select`}>
           I'm something you use every day,<br />
           Yet often forget to change.<br />
           I protect your secrets but can be weak,<br />

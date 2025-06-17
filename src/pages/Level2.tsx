@@ -94,7 +94,7 @@ const Level2: React.FC = () => {
           </div>
           
           <div className={styles.panel}>
-            <div className={styles.questionText}>
+            <div className={`${styles.questionText} no-select`}>
               {`${currentQuestion + 1}/${questions.length}: ${questions[currentQuestion].text}`}
             </div>
             

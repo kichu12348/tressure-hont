@@ -236,7 +236,7 @@ const Level4: React.FC = () => {
                 <div className={styles.attemptMessage}>{attemptMessage}</div>
               )}
 
-              <p className={styles.safeHint}>
+              <p className={`${styles.safeHint} no-select`}>
                 Hint: The sum of first two digits equals the third. Fourth is
                 the difference between first and second.
               </p>

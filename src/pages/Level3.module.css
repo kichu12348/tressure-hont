@@ -71,6 +71,7 @@
   background-color: rgba(13, 13, 13, 0.7);
   border: 1px solid var(--accent-blue);
   color: var(--text-primary);
+  font-size: 16px;
   padding: 10px 5%;
   width: 90%;
   max-width: 100%;
