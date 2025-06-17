@@ -24,6 +24,7 @@ input[type=number]::-webkit-inner-spin-button {
 /* Hide spinners for Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 body::-webkit-scrollbar {

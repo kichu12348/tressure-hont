@@ -2,37 +2,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  justify-content: flex-start;
+  min-height: auto;
+  max-height: 90vh; /* Set exactly to 90vh max */
   width: 100%;
+  max-width: 700px; /* Increased back */
+  margin: 0 auto;
+  padding: 0.5rem 0; /* Increased padding */
+  color: var(--text-primary);
+  overflow-y: auto; /* Add scrolling if absolutely needed */
 }
 
 .header {
-  margin-bottom: 40px;
+  margin-bottom: 8px; /* Increased */
   text-align: center;
 }
 
 .title {
   color: var(--accent-blue);
-  margin-bottom: 10px;
+  font-size: 1.4rem; /* Increased */
+  text-transform: uppercase;
+  margin-bottom: 0.2rem; /* Added margin */
+  font-weight: bold;
+  text-shadow: 0 0 8px var(--border-glow);
 }
 
 .error {
   color: var(--error-red);
-  margin-bottom: 20px;
+  margin-top: 0.3rem; /* Increased */
+  font-size: 0.85rem; /* Increased */
 }
 
 .panel {
-  background-color: var(--panel-bg);
-  border: 1px solid var(--accent-blue);
-  border-radius: 4px;
-  padding: 30px;
-  margin-bottom: 30px;
-  width: 50%;
+  padding: 1rem; /* Increased padding */
+  margin-bottom: 8px; /* Increased */
+  width: 85%; /* Adjusted */
+  max-height: 78vh; /* Adjusted */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
 }
 
 .formGroup {
-  margin-bottom: 20px;
+  margin-bottom: 0.75rem; /* Increased */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -42,27 +54,36 @@
 
 .label {
   display: block;
-  margin-bottom: 5px;
-  color: var(--accent-blue);
+  margin-bottom: 0.2rem; /* Increased */
+  font-weight: bold;
+  font-size: 0.9rem; /* Increased */
 }
 
 .input {
-  background-color: rgba(13, 13, 13, 0.7);
+  width: 90%;
+  
+  padding: 0.6rem;
+  padding-right: 8%;
+  background-color: rgba(26, 26, 26, 0.7);
   border: 1px solid var(--accent-blue);
   color: var(--text-primary);
-  padding: 10px 5%;
-  width: 90%;
-  font-family: inherit;
+  border-radius: 4px; /* Increased */
+  font-size: 0.9rem; /* Increased */
 }
 
 .button {
   background-color: transparent;
-  border: 1px solid var(--accent-blue);
   color: var(--accent-blue);
-  padding: 10px 20px;
-  font-family: inherit;
+  border: 1px solid var(--accent-blue);
+  padding: 0.6rem 1.2rem; /* Increased */
+  font-size: 0.9rem; /* Increased */
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px; /* Increased */
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 0.75rem; /* Increased */
 }
 
 .button:hover {
@@ -70,45 +91,292 @@
   box-shadow: 0 0 10px var(--border-glow);
 }
 
+.button:disabled {
+  background-color: transparent;
+  border-color: var(--panel-bg);
+  color: var(--panel-bg);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .success {
   color: var(--accent-green);
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 8px; /* Increased */
+  padding: 12px; /* Increased */
   border: 1px solid var(--accent-green);
   text-align: center;
+  font-size: 0.9rem; /* Increased */
 }
 
 .code {
   font-family: monospace;
   background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
-  margin: 20px 0;
+  padding: 6px; /* Reduced */
+  margin: 8px 0; /* Reduced */
   display: inline-block;
+  font-size: 0.8rem; /* Reduced */
+  color: var(--text-primary);
 }
 
 .returnHome {
-  margin-top: 20px;
+  width: auto;
+  margin: 0.5rem auto; /* Reduced */
+  display: block;
 }
 
 .loading {
-  margin: 20px 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem; /* Increased */
   color: var(--accent-blue);
+  font-size: 0.9rem; /* Increased */
 }
 
 .spinner {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--accent-blue);
+  width: 16px; /* Increased */
+  height: 16px; /* Increased */
+  border: 2px solid var(--border-glow);
+  border-top-color: var(--accent-blue);
   border-radius: 50%;
-  border-top-color: transparent;
   animation: spin 1s linear infinite;
-  margin-right: 10px;
+  margin-right: 0.4rem; /* Increased */
 }
 
+.firstTime {
+  color: var(--accent-green);
+  font-size: 1rem; /* Increased */
+  font-weight: bold;
+  margin: 0.75rem 0; /* Increased */
+}
+
+.notFirstTime {
+  color: var(--text-primary);
+  font-size: 0.9rem; /* Increased */
+  margin: 0.75rem 0; /* Increased */
+}
+
+/* Safe UI styles */
+.safeChallenge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timerDisplay {
+  font-size: 1.1rem; /* Increased */
+  font-weight: bold;
+  margin-bottom: 0.75rem; /* Increased */
+  text-align: center;
+}
+
+.dangerTime {
+  color: var(--error-red);
+  animation: pulse 0.8s infinite alternate;
+}
+
+.safeDisplay {
+  background-color: var(--panel-bg);
+  padding: 1rem; /* Increased */
+  border-radius: 6px; /* Increased */
+  box-shadow: 0 0 10px var(--border-glow);
+  border: 1px solid var(--accent-blue);
+  width: 100%;
+  max-width: 300px; /* Increased */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.safeCode {
+  display: flex;
+  margin-bottom: 0.75rem; /* Increased */
+  gap: 6px; /* Increased */
+}
+
+.codeDigit {
+  width: 40px; /* Increased */
+  height: 40px; /* Increased */
+  background-color: var(--bg-dark);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px; /* Increased */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem; /* Increased */
+  font-weight: bold;
+  color: var(--accent-blue);
+}
+
+.numberPad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px; /* Increased */
+  width: 100%;
+  max-width: 220px; /* Increased */
+  margin-top: 0.75rem; /* Increased */
+}
+
+.numberButton {
+  background-color: transparent;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px; /* Increased */
+  padding: 10px 0; /* Increased */
+  font-size: 1rem; /* Increased */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 40px; /* Increased */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numberButtonInvisible {
+  background-color: transparent;
+  color: transparent; /* Make invisible */
+  border: 1px solid transparent; /* Make invisible */
+  cursor: not-allowed; /* Indicate no interaction */
+}
+
+.numberButtonInvisible:hover {
+  background-color: transparent; /* No hover effect */
+  cursor: default;
+}
+
+
+
+.numberButton:hover:not(:disabled) {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+.numberButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--panel-bg);
+  color: var(--panel-bg);
+  background-color: transparent;
+}
+
+.backspaceButton {
+  background-color: transparent;
+  color: var(--error-red); /* Different color for backspace */
+  border: 1px solid var(--error-red);
+  border-radius: 4px;
+  padding: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 3; /* Take full width */
+  margin-top: 6px;
+}
+
+.backspaceButton:hover:not(:disabled) {
+  background-color: rgba(255, 43, 43, 0.1);
+}
+
+.backspaceButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--panel-bg);
+  color: var(--panel-bg);
+  background-color: transparent;
+}
+
+.attemptMessage {
+  color: var(--accent-blue);
+  margin: 0.5rem 0; /* Increased */
+  font-weight: bold;
+  height: 20px; /* Increased */
+  font-size: 0.9rem; /* Increased */
+}
+
+.safeHint {
+  background-color: var(--bg-dark);
+  padding: 0.6rem; /* Increased */
+  border-radius: 4px; /* Increased */
+  margin: 0.6rem 0; /* Increased */
+  font-style: italic;
+  text-align: center;
+  font-size: 0.8rem; /* Increased */
+  color: var(--text-primary);
+}
+
+.timeExpired {
+  text-align: center;
+  color: var(--error-red);
+  font-size: 0.9rem; /* Increased */
+}
+
+.treasureRevealed {
+  text-align: center;
+  margin-bottom: 1rem; /* Increased */
+  font-size: 0.9rem; /* Increased */
+}
+
+.treasureMessage {
+  margin-bottom: 0.75rem; /* Increased */
+}
+
+.treasureBox {
+  background-color: var(--panel-bg);
+  padding: 1rem; /* Increased */
+  border-radius: 6px; /* Increased */
+  margin: 0.75rem auto; /* Increased */
+  max-width: 400px; /* Increased */
+  border: 2px solid var(--accent-blue);
+  box-shadow: 0 0 15px var(--border-glow);
+}
+
+.treasureName {
+  font-size: 1.5rem; /* Increased */
+  font-weight: bold;
+  color: var(--accent-blue);
+  display: block;
+  margin-bottom: 0.5rem; /* Increased */
+  text-shadow: 0 0 8px var(--border-glow);
+}
+
+.treasureForm {
+  margin-top: 1rem; /* Increased */
+  padding-top: 0.6rem; /* Increased */
+  border-top: 1px solid var(--accent-blue);
+}
+
+/* Keep animations unchanged */
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+/* Success message styles - increased */
+.success h2 {
+  font-size: 1.4rem; /* Increased */
+  margin: 0.75rem 0; /* Increased */
+}
+
+.success p {
+  margin: 0.5rem 0; /* Increased */
+}
+
+
+@media  screen and (max-width: 768px) {
+  .input{
+    width: 88%;
   }
 }

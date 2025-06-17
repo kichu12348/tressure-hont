@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { GameProvider, useGame } from './context/GameContext';
 import NameModal from './components/Modal/NameModal';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Level1 from './pages/Level1';
 import Level2 from './pages/Level2';
@@ -14,6 +16,16 @@ import './App.css';
 // Protected route component
 const ProtectedRoute = ({ element, requiredLevel }: { element: JSX.Element, requiredLevel: number }) => {
   const { name, currentLevel } = useGame();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loading screen briefly when changing levels
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!name) {
     return <Navigate to="/" />;
@@ -23,11 +35,25 @@ const ProtectedRoute = ({ element, requiredLevel }: { element: JSX.Element, requ
     return <Navigate to="/" />;
   }
 
-  return element;
+  return loading ? <LoadingScreen /> : element;
 };
 
 const AppContent: React.FC = () => {
   const { name } = useGame();
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  useEffect(() => {
+    // Show initial loading screen
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (initialLoading) {
+    return <LoadingScreen onLoadingComplete={() => setInitialLoading(false)} />;
+  }
 
   return (
     <div className="app-container">
@@ -40,6 +66,7 @@ const AppContent: React.FC = () => {
         <Route path="/level/4" element={<ProtectedRoute element={<Level4 />} requiredLevel={4} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
