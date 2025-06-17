@@ -66,7 +66,7 @@ const Level3: React.FC = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>LEVEL 3: Cipher Challenge</h1>
+        <h1 className={styles.title}>LEVEL 3: Caesar Cipher Challenge</h1>
         <p>Decrypt the message</p>
       </header>
 

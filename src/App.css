@@ -1,6 +1,6 @@
 :root {
   --bg-dark: #0d0d0d;
-  --panel-bg: #1a1a1a;
+  --panel-bg: rgba(26, 26, 26, 0.2);
   --text-primary: #e0e0e0;
   --accent-green: #39ff14;
   --accent-blue: #00ffff;
@@ -113,4 +113,143 @@ body::-webkit-scrollbar-track {
   padding: 20px;
   margin: 10px 0;
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+/* Add this to your existing App.css file */
+
+/* Circuit board background branding */
+.background-branding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+/* Logo background */
+.background-branding::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-image: url('/iedc_logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.03;
+  filter: brightness(0) saturate(100%) invert(84%) sepia(22%) saturate(1187%) hue-rotate(67deg) brightness(96%) contrast(104%);
+  animation: float 20s infinite ease-in-out;
+  z-index: -2;
+}
+
+/* Circuit pattern overlay */
+.background-branding::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+    radial-gradient(circle, rgba(0, 255, 0, 0.05) 2px, transparent 2px);
+  background-size: 20px 20px, 20px 20px, 60px 60px;
+  background-position: center;
+  opacity: 0.8;
+  transform: rotate(-5deg);
+  z-index: -1;
+}
+
+/* Terminal text - remains unchanged */
+.terminal-text {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  opacity: 0;
+  animation: terminal-animation 15s infinite;
+}
+
+/* Horizontal scan line */
+.scan-line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(0, 255, 0, 0.3);
+  opacity: 0;
+  animation: scan 8s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating animation for logo */
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Terminal animation - unchanged */
+@keyframes terminal-animation {
+  0%, 85%, 100% {
+    opacity: 0;
+  }
+  87%, 93% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.9;
+  }
+}
+
+/* Scan line animation - unchanged */
+@keyframes scan {
+  0%, 100% {
+    top: -5px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
+/* Add media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .background-branding::before {
+    width: 80%;
+    height: 80%;
+    opacity: 0.04; /* Slightly more visible on mobile */
+  }
+  
+  .background-branding::after {
+    width: 150px;
+    height: 150px;
+    right: 10px;
+    bottom: 10px;
+  }
 }

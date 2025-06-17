@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { GameProvider, useGame } from './context/GameContext';
 import NameModal from './components/Modal/NameModal';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
-import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Level1 from './pages/Level1';
 import Level2 from './pages/Level2';
@@ -66,7 +65,8 @@ const AppContent: React.FC = () => {
         <Route path="/level/4" element={<ProtectedRoute element={<Level4 />} requiredLevel={4} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Footer />
+      <div className="background-branding"></div>
+      <div className="scan-line"></div>
     </div>
   );
 };
