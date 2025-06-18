@@ -38,7 +38,7 @@ const Level3: React.FC = () => {
     // For Caesar cipher, the key is the shift value.
     // The problem states "TRESSURE" is the clue and offset is 5.
     // So, the user should input '5' as the key to decrypt.
-    const shift = parseInt(key, 10);
+    const shift = parseInt(key.trim(), 10);
     if (isNaN(shift)) {
       setDecryptedText("Invalid shift value. Please enter a number.");
       return;
@@ -85,7 +85,7 @@ const Level3: React.FC = () => {
               onChange={(e) => {
                 setKey(e.target.value);
               }}
-              placeholder={"Enter the shift value(1-25)"}
+              placeholder={"Enter the shift value"}
             />
           </div>
 

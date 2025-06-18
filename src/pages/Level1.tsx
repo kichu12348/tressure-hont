@@ -16,7 +16,7 @@ const Level1: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (answer.toLowerCase() === correctAnswer) {
+    if (answer.toLowerCase().trim() === correctAnswer) {
       setError('');
       setSuccess(true);
       advanceLevel();
@@ -38,15 +38,18 @@ const Level1: React.FC = () => {
       
       <div className={styles.panel}>
         <div className={`${styles.clueText} no-select`}>
-          I'm something you use every day,<br />
-          Yet often forget to change.<br />
-          I protect your secrets but can be weak,<br />
-          When you make me short or strange.<br /><br />
+          I am a construct of compliance,<br />
+          Forged beneath constraint and choice.<br />
+          Entropy defines my strength,<br />
+          Yet routine erodes my voice.<br /><br />
           
-          Sometimes I'm required to be complex,<br />
-          With symbols, numbers, and case.<br />
-          What am I, that grants you access,<br />
-          To your most private digital space?
+          I precede permission.<br />
+          I follow identity.<br />
+          I am required, but not remembered.<br />
+          I am known, yet never seen.<br /><br />
+          
+          When I mirror predictability,<br />
+          I become your greatest flaw.
         </div>
         
         {!success ? (
