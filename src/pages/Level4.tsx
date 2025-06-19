@@ -13,7 +13,7 @@ interface APIResponse {
 
 const SAFE_TIME_LIMIT = 60; // 60 seconds
 const STORAGE_KEY = "treasureHunt_safeTimer";
-const SAFE_COMBINATION = "7491"; // The combination to unlock the safe
+const SAFE_COMBINATION = "1980"; // The combination to unlock the safe
 
 const Level4: React.FC = () => {
   const { name, email } = useGame();
@@ -181,7 +181,9 @@ const Level4: React.FC = () => {
         {numbers.map((num) => (
           <button
             key={num}
-            className={`${styles.numberButton} ${num === -2 ? styles.numberButtonInvisible : ""}`}
+            className={`${styles.numberButton} ${
+              num === -2 ? styles.numberButtonInvisible : ""
+            }`}
             onClick={() => {
               if (safeOpen || timeExpired || num === -2) return;
               if (num === -1) {
@@ -237,8 +239,13 @@ const Level4: React.FC = () => {
               )}
 
               <p className={`${styles.safeHint} no-select`}>
-                Hint: The sum of first two digits equals the third. Fourth is
-                the difference between first and second.
+                The "Human Computer" astonished the world by mentally
+                multiplying the two 13-digit numbers
+                <br />
+                7,686,369,774,870 × 2,465,099,745,779 in just 28 seconds, a feat
+                that secured her a spot in the Guinness Book of World Records?
+                <br />
+                Hint: 2008
               </p>
 
               {renderNumberPad()}
