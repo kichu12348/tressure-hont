@@ -245,7 +245,7 @@ const Level4: React.FC = () => {
                 7,686,369,774,870 × 2,465,099,745,779 in just 28 seconds, a feat
                 that secured her a spot in the Guinness Book of World Records?
                 <br />
-                Hint: 2008
+                Hint: Year
               </p>
 
               {renderNumberPad()}
